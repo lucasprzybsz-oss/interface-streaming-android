@@ -12,33 +12,35 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class ListagemActivity extends AppCompatActivity {
+public class ListaFilmesActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     FilmeAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_listagem);
+        setContentView(R.layout.activity_lista_filmes);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-
+        //incializa a lista de filmes
         ArrayList<Filme> filmes = new ArrayList<>();
         carregarFilmes(filmes);
+
+        //define o objeto no layout
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        //inicializa o adaptador e anexa
         adapter = new FilmeAdapter(filmes);
         recyclerView.setAdapter(adapter);
 
-
     }
-
 
     private void carregarFilmes(ArrayList<Filme> filmes) {
 
@@ -132,7 +134,6 @@ public class ListagemActivity extends AppCompatActivity {
                 R.drawable.shrek
         ));
     }
-
 
 
 }

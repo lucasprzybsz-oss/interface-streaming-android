@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         botaoListagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ListagemActivity.class);
+                Intent intent = new Intent(MainActivity.this, ListaFilmesActivity.class);
                 startActivity(intent);
             }
         });

@@ -17,37 +17,47 @@ public class FilmeAdapter extends RecyclerView.Adapter<FilmesViewHolder> {
     public FilmeAdapter(ArrayList<Filme> filmes) {
         this.filmes = filmes;
     }
+
     @NonNull
-    @Override
+    @Override    //define o layout padrao para cada filme
     public FilmesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater
+        View view = LayoutInflater //transforma o xml em view
                 .from(parent.getContext())
                 .inflate(
-                        R.layout.item_listagem,
+                        R.layout.item_filme,
                         parent,
                         false
                 );
         return new FilmesViewHolder(view);
     }
 
-    @Override
+
+    @Override     //responsavel por anexar as informaçoes na caixa
     public void onBindViewHolder(@NonNull FilmesViewHolder holder, int position) {
+
         Filme filme = filmes.get(position);
         holder.tituloFilme.setText(filme.getTitulo());
         holder.descricaoFilme.setText(filme.getDescricao());
         holder.generoAno.setText(filme.getGenero() + " • " + filme.getAno());
 
+        //carrega a imagem em url
         Glide.with(holder.itemView.getContext())
                 .load(filme.getImagem())
                 .into(holder.imageFilme);
 
+        //define eventos para cada clique na caixa
+        clique_curto(holder,filme);
+        clique_longo(holder,filme,position);
+
+    }
+    private void clique_curto(FilmesViewHolder holder, Filme filme){
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(
                         v.getContext(),
-                        InformacoesActivity.class
+                        DetalhesFilmesActivity.class
                 );
 
                 intent.putExtra("filme", filme);
@@ -55,8 +65,8 @@ public class FilmeAdapter extends RecyclerView.Adapter<FilmesViewHolder> {
                 v.getContext().startActivity(intent);
             }
         });
-
-
+    }
+    private void clique_longo(FilmesViewHolder holder, Filme filme, int position){
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -77,6 +87,7 @@ public class FilmeAdapter extends RecyclerView.Adapter<FilmesViewHolder> {
             }
         });
     }
+
 
     @Override
     public int getItemCount() {

@@ -12,6 +12,8 @@ public class FilmesViewHolder extends RecyclerView.ViewHolder {
     public TextView tituloFilme;
     public TextView descricaoFilme;
     public TextView generoAno;
+
+    //define a referencia de cada item do view
     public FilmesViewHolder(@NonNull View itemView) {
         super(itemView);
         imageFilme = itemView.findViewById(R.id.imagem_filme);

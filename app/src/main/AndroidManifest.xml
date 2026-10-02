@@ -22,11 +22,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ListagemActivity"
+            android:name=".ListaFilmesActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".InformacoesActivity"
+            android:name=".DetalhesFilmesActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 

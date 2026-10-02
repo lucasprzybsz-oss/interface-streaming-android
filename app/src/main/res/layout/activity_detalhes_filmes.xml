@@ -9,13 +9,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#101010"
-    tools:context=".InformacoesActivity">
+    tools:context=".DetalhesFilmesActivity">
 
 
     <!-- Cabeçalho -->
     <include
         android:id="@+id/cabecalho"
-        layout="@layout/cabecalho_layout"
+        layout="@layout/layout_cabecalho"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -81,7 +81,7 @@
                 android:paddingBottom="30dp">
 
 
-                <!-- Logo -->
+                <!-- Titulo -->
                 <TextView
                     android:id="@+id/titulo_filme"
                     android:layout_width="match_parent"
@@ -136,7 +136,7 @@
                     android:textStyle="bold" />
 
 
-                <!-- Sinopse -->
+                <!-- Descricao -->
                 <TextView
                     android:id="@+id/descricao_filme"
                     android:layout_width="match_parent"

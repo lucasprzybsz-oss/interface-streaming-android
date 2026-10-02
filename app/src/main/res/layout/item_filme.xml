@@ -8,11 +8,14 @@
     app:cardBackgroundColor="#151515"
     app:cardElevation="3dp"
     app:strokeWidth="0dp">
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp">
+
+        <!-- Poster Filme -->
         <androidx.cardview.widget.CardView
             android:layout_width="100dp"
             android:layout_height="140dp"
@@ -35,6 +38,7 @@
             android:layout_weight="1"
             android:layout_marginStart="15dp">
 
+            <!-- Titulo -->
             <TextView
                 android:id="@+id/titulo_filme"
                 android:layout_width="match_parent"
@@ -44,16 +48,19 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <!-- Genero / Ano -->
             <TextView
                 android:id="@+id/genero_ano_filme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:fontFamily="@font/actor"
-                android:text="Ficção científica • 2014"
+                android:text="Genero • Ano"
                 android:textColor="#9E9E9E"
                 android:textSize="13sp" />
 
+            <!-- Descricao -->
             <TextView
                 android:id="@+id/descricao_filme"
                 android:layout_width="match_parent"

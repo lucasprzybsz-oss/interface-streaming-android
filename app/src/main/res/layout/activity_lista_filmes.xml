@@ -7,12 +7,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListagemActivity"
+    tools:context=".ListaFilmesActivity"
     android:background="#101010">
 
+    <!-- Cabeçalho-->
     <include
         android:id="@+id/cabecalho"
-        layout="@layout/cabecalho_layout"
+        layout="@layout/layout_cabecalho"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -22,6 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Lista RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"

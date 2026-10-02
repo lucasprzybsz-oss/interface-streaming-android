@@ -1,7 +1,6 @@
 package com.example.atividaderecyclerview;
 import com.bumptech.glide.Glide;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,26 +10,24 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class InformacoesActivity extends AppCompatActivity {
+public class DetalhesFilmesActivity extends AppCompatActivity {
 
-    ImageView logo_filme;
-    ImageView imagem_filme;
-    TextView genero_ano_filme;
-    TextView descricao_filme;
-    TextView titulo_filme;
+    ImageView imagem_filme, logo_filme;
 
+    TextView titulo_filme, genero_ano_filme, descricao_filme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_informacoes);
+        setContentView(R.layout.activity_detalhes_filmes);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
+        //recebe o objeto enviado pelo intent
         Filme filme = (Filme) getIntent()
                 .getSerializableExtra("filme");
 
@@ -40,28 +37,19 @@ public class InformacoesActivity extends AppCompatActivity {
         titulo_filme = findViewById(R.id.titulo_filme);
         logo_filme = findViewById(R.id.logo_filme);
 
-        genero_ano_filme.setText(
-                filme.getGenero() + " • " + filme.getAno()
-        );
 
-        descricao_filme.setText(
-                filme.getDescricao()
-        );
+        //prepara todos os campos com as informações do objeto
+        genero_ano_filme.setText(filme.getGenero() + " • " + filme.getAno());
+
+        descricao_filme.setText(filme.getDescricao());
 
         titulo_filme.setText(filme.getTitulo());
 
         logo_filme.setImageResource(filme.getLogo());
 
-
-
-
-        // Carrega a imagem/pôster
+        // Carrega a imagem url
         Glide.with(this)
                 .load(filme.getImagem())
                 .into(imagem_filme);
-
-
-
-
     }
 }
