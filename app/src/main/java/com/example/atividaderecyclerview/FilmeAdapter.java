@@ -1,6 +1,7 @@
 package com.example.atividaderecyclerview;
 import com.bumptech.glide.Glide;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,24 +71,34 @@ public class FilmeAdapter extends RecyclerView.Adapter<FilmesViewHolder> {
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
 
-                String nome = filme.getTitulo();
+                builder.setTitle("Aviso");
+                builder.setMessage("Deseja remover este Filme?");
 
-                filmes.remove(position);
+                builder.setPositiveButton("Remover", ((dialog, which) -> {
+                    remover_item(filme.getTitulo(),position,v);
+                }));
+                builder.setNegativeButton("Cancelar", null);
 
-                notifyItemRemoved(position);
-
-                Toast.makeText(
-                        v.getContext(),
-                        nome + " foi removido da lista.",
-                        Toast.LENGTH_SHORT
-                ).show();
+                AlertDialog alerta = builder.create();
+                alerta.show();
 
                 return true;
             }
         });
     }
+    private void remover_item(String titulo, int position, View v){
 
+        filmes.remove(position);
+        notifyItemRemoved(position);
+
+        Toast.makeText(
+                v.getContext(),
+                titulo + " foi removido da lista.",
+                Toast.LENGTH_SHORT
+        ).show();
+    }
 
     @Override
     public int getItemCount() {
