@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101010"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <!-- Logo / título -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:contentDescription="@null"
+                android:src="@drawable/claquetesvg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/actor"
+                android:text="MovieFlix"
+                android:textColor="@color/white"
+                android:textSize="34sp" />
+
+        </LinearLayout>
+
+
+        <!-- Descrição -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/actor"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:text="Explore nossa seleção de filmes e descubra informações sobre grandes clássicos do cinema."
+            android:textColor="#BDBDBD"
+            android:textSize="17sp" />
+
+
+        <!-- Botão -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/botaoListagem"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="40dp"
+
+            android:fontFamily="@font/actor"
+            android:text="Explorar Filmes"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+
+            app:backgroundTint="@color/white"
+            app:cornerRadius="14dp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

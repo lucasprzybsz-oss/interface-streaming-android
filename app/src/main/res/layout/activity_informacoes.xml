@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101010"
+    tools:context=".InformacoesActivity">
+
+
+    <!-- Cabeçalho -->
+    <include
+        android:id="@+id/cabecalho"
+        layout="@layout/cabecalho_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!-- Conteúdo rolável -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:fillViewport="true"
+
+        app:layout_constraintTop_toBottomOf="@id/cabecalho"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!-- Imagem principal -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="280dp">
+
+                <!-- Imagem do filme -->
+                <ImageView
+                    android:id="@+id/imagem_filme"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop" />
+
+                <!-- Logo sobre a imagem -->
+                <ImageView
+                    android:id="@+id/logo_filme"
+                    android:layout_width="180dp"
+                    android:layout_height="92dp"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:contentDescription="@null"
+                    android:scaleType="fitStart" />
+
+            </FrameLayout>
+
+
+            <!-- Informações do filme -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingTop="14dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="30dp">
+
+
+                <!-- Logo -->
+                <TextView
+                    android:id="@+id/titulo_filme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/actor"
+                    android:text="Título"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    android:textStyle="bold" />
+
+
+                <!-- Gênero e ano -->
+                <TextView
+                    android:id="@+id/genero_ano_filme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/actor"
+                    android:text="Fantasia • 2001"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
+
+
+                <!-- Botão assistir -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/botaoAssistir"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/actor"
+                    android:text="Assistir Agora"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="14dp"
+                    app:icon="@drawable/play"
+                    app:iconGravity="textStart"
+                    app:iconSize="22dp"
+                    app:iconTint="@color/black" />
+
+
+                <!-- Título da sinopse -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:fontFamily="@font/actor"
+                    android:text="Sinopse"
+                    android:textColor="@color/white"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+
+                <!-- Sinopse -->
+                <TextView
+                    android:id="@+id/descricao_filme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/actor"
+                    android:lineSpacingExtra="3dp"
+                    android:text="Descrição do filme"
+                    android:textColor="#BDBDBD"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
